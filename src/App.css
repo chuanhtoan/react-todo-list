@@ -95,3 +95,10 @@ h2 {
     font-style: italic;
     text-decoration: line-through;
 }
+
+@media all and (max-width: 600px) {
+    .App {
+        width: 80vw;
+        padding: 40px 20px;
+    }
+}
