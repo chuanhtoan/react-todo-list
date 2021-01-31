@@ -1,15 +1,25 @@
 import CheckIcon from '@material-ui/icons/Check';
-import EditIcon from '@material-ui/icons/Edit';
 import ClearIcon from '@material-ui/icons/Clear';
 
-const Todo = () => {
+const Todo = ({ todo, deleteTodo, checkTodo }) => {
+    const checkColor = todo.checked ? { color: 'gray' } : {}
+
     return (
-        <div className='Todo'>
-            <h2>Todo</h2>
-            <div>
-                <button className='btn btn-check'><CheckIcon /></button>
-                <button className='btn btn-edit'><EditIcon /></button>
-                <button className='btn btn-clear'><ClearIcon /></button>
+        <div className='todo'>
+            <h2 className={todo.checked && 'checked'}>{todo.todo}</h2>
+            <div className='form-buttons'>
+                <button 
+                    className='btn btn-check'
+                    onClick={e => checkTodo(todo.id)}
+                >
+                    <CheckIcon style={checkColor} />
+                </button>
+                <button 
+                    className='btn btn-clear'
+                    onClick={e => deleteTodo(todo.id)}
+                >
+                    <ClearIcon />
+                </button>
             </div>
         </div>
     )
